@@ -62,7 +62,7 @@ exports = module.exports = function (app) {
 
 	//Auth
 
-	app.get('/auth/facebook', passport.authenticate('facebook', {scope : ['emails']}));
+	app.get('/auth/facebook', passport.authenticate('facebook', {scope : ['email']}));
 
 	app.get('/auth/facebook/callback',
   		passport.authenticate('facebook', { successRedirect: '/profile',

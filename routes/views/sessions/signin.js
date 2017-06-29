@@ -43,8 +43,8 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
-	var FACEBOOK_APP_ID = "142119856345093";
-	var FACEBOOK_CLIENT_SECRET = "18675a55e73f0fde034847d19d394638";
+	var FACEBOOK_APP_ID = "603687426645893";
+	var FACEBOOK_CLIENT_SECRET = "e9bc2830e1471e69b62a7dbc7b5cec77";
 	var FACEBOOKcallback = "http://localhost:3000/auth/facebook/callback";
 
 
@@ -52,7 +52,8 @@ exports = module.exports = function(req, res) {
 	passport.use(new FacebookStrategy({
 	    clientID: FACEBOOK_APP_ID,
 	    clientSecret: FACEBOOK_CLIENT_SECRET,
-	    callbackURL: FACEBOOKcallback
+	    callbackURL: FACEBOOKcallback,
+	    profileFields: ['emails','name']
 	  },
 	  function(accessToken, refreshToken, profile, done) {
 	    process.nextTick(function(){

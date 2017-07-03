@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-var User = keystone.list('User');
+var Patient = keystone.list('Patient');
 
 exports = module.exports = function (req, res) {
 
@@ -11,14 +11,15 @@ exports = module.exports = function (req, res) {
 	locals.section = 'HealthForm';
 
 
-	view.query('User',
-		User.model.findOne()
+	view.query('Patient',
+		Patient.model.findOne()
 		.where('email', req.user.email)
 		);
 
+
 	view.on('post', { action: 'profile.Health1' }, function(next) {
 
-		User.model.findOne({'email': req.user.email}).exec(function(err,doc){
+		Patient.model.findOne({'email': req.user.email}).exec(function(err,doc){
 			
 			doc.surgery = req.body.surgery;
 			doc.condition = req.body.condition;
@@ -44,7 +45,7 @@ exports = module.exports = function (req, res) {
 
 	view.on('post', { action: 'profile.HealthS' }, function(next) {
 
-		User.model.findOne({email: req.user.email}).exec(function(err,doc){
+		Patient.model.findOne({email: req.user.email}).exec(function(err,doc){
 			
 			doc.alcohol = req.body.alcohol;
 			doc.diet = req.body.diet;
@@ -71,7 +72,7 @@ exports = module.exports = function (req, res) {
 
 		view.on('post', { action: 'profile.Health3' }, function(next) {
 
-		User.model.findOne({email: req.user.email}).exec(function(err,doc){
+		Patient.model.findOne({email: req.user.email}).exec(function(err,doc){
 			
 			doc.famhis = req.body.famhis;
 			doc.fcondition = req.body.fcondition;

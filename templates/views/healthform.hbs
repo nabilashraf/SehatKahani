@@ -20,7 +20,7 @@
                 <div class="form-group">
                   <label class="col-md-2">Condition</label>
                   <div class="col-md-10">
-                    <textarea name="condition" rows="5" class="form-control">{{user.condition}}</textarea>
+                    <textarea name="condition" rows="5" class="form-control">{{Patient.condition}}</textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -50,7 +50,7 @@
                 <div class="form-group">
                   <label class="col-sm-2">Surgery</label>
                   <div class="col-sm-10">
-                    <textarea name="surgery" rows="5" class="form-control">{{user.surgery}}</textarea>
+                    <textarea name="surgery" rows="5" class="form-control">{{Patient.surgery}}</textarea>
                   </div>
                 </div>
                 <div class="form-group">
@@ -75,25 +75,25 @@
     <div class="row">
       <label class="col-md-3">Current Condition:</label>
       <div class="col-md-9">
-        <p>{{user.condition}} </p>
+        <p>{{Patient.condition}} </p>
       </div>
     </div>
     <div class="row">
       <label class="col-md-3">Duration:</label>
       <div class="col-md-9">
-        <p>{{user.duration}} </p>
+        <p>{{Patient.duration}} </p>
       </div>
     </div>
     <div class="row">
       <label class="col-md-3">Status:</label>
       <div class="col-md-9">
-        <p>{{user.status}} </p>
+        <p>{{Patient.status}} </p>
       </div>
    	</div>
     <div class="row">
       <label class="col-md-3">Surgery:</label>
       <div class="col-md-9">
-        <p>{{user.surgery}} </p>
+        <p>{{Patient.surgery}} </p>
       </div>
     </div><br/><br/>
     <H3>Social History</H3>
@@ -160,12 +160,12 @@
                 <div class="form-group">
                   <label class="col-sm-2">Height</label>
                   <div class="col-sm-10">
-                    <input type="text" name="height" value={{user.height}} placeholder="eg; 5ft 3in = 5.3" class="form-control"/>
+                    <input type="text" name="height" value={{Patient.height}} placeholder="eg; 5ft 3in = 5.3" class="form-control"/>
                   </div>
                 <div class="form-group">
                   <label class="col-sm-2">Weight</label>
                   <div class="col-sm-10">
-                    <input type="text" name="weight" value={{user.weight}} placeholder="eg; 50Kg = 50" class="form-control"/>
+                    <input type="text" name="weight" value={{Patient.weight}} placeholder="eg; 50Kg = 50" class="form-control"/>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -187,31 +187,31 @@
     <div class="row">
       <label class="col-md-3">Exercise Level:</label>
       <div class="col-md-9">
-        <p>{{user.exercise}} </p>
+        <p>{{Patient.exercise}} </p>
       </div>
     </div>
     <div class="row">
       <label class="col-md-3">Height:</label>
       <div class="col-md-9">
-        <p>{{user.height}} </p>
+        <p>{{Patient.height}} </p>
       </div>
     </div>
     <div class="row">
       <label class="col-md-3">Weight:</label>
       <div class="col-md-9">
-        <p>{{user.weight}} </p>
+        <p>{{Patient.weight}} </p>
       </div>
     </div>
     <div class="row">
       <label class="col-md-3">Alcohol Consupmtion:</label>
       <div class="col-md-9">
-        <p>{{user.alcohol}} </p>
+        <p>{{Patient.alcohol}} </p>
       </div>
     </div>
     <div class="row">
       <label class="col-md-3">Tobacco Consupmtion:</label>
       <div class="col-md-9">
-        <p>{{user.tobacco}} </p>
+        <p>{{Patient.tobacco}} </p>
       </div>
     </div><br/><br/>
     <H3>Family History</H3>
@@ -253,7 +253,7 @@
                 <div class="form-group">
                   <label class="col-sm-2">Condition</label>
                   <div class="col-sm-10">
-                    <textarea name="fcondition" rows="2" class="form-control">{{user.fcondition}}</textarea>
+                    <textarea name="fcondition" rows="2" class="form-control">{{Patient.fcondition}}</textarea>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
@@ -269,13 +269,13 @@
     <div class="row">
       <label class="col-md-3">Relationship:</label>
       <div class="col-md-9">
-        <p>{{user.famhis}}</p>
+        <p>{{Patient.famhis}}</p>
       </div>
     </div>
     <div class="row">
       <label class="col-md-3">Condition:</label>
       <div class="col-md-9">
-        <p>{{user.fcondition}}</p>
+        <p>{{Patient.fcondition}}</p>
       </div>
     </div>
   </div>

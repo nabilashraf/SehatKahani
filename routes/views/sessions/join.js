@@ -54,7 +54,11 @@ exports = module.exports = function(req, res) {
 				};
 				
 				var User = keystone.list('User').model,
-					newUser = new User(userData);
+					Patient = keystone.list('Patient').model,
+					newUser = new User(userData),
+					newP = new Patient(userData);
+
+				newP.save();
 
 				newUser.save(function(err) {
 					return cb(err);

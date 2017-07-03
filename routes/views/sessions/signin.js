@@ -45,7 +45,7 @@ exports = module.exports = function(req, res) {
 	
 	var FACEBOOK_APP_ID = "603687426645893";
 	var FACEBOOK_CLIENT_SECRET = "e9bc2830e1471e69b62a7dbc7b5cec77";
-	var FACEBOOKcallback = "http://localhost:3000/auth/facebook/callback";
+	var FACEBOOKcallback = "http://sehatkahani-latest.herokuapp.com/auth/facebook/callback";
 
 
 
@@ -84,7 +84,7 @@ exports = module.exports = function(req, res) {
 
 	var GOOGLE_APP_ID = "970539159370-r27676du3tc9k1hq26qa9lv9gc1uov18.apps.googleusercontent.com";
 	var GOOGLE_CLIENT_SECRET = "7rqoF1LqaSsMgQyhxgg5tFQV";
-	var GOOGLEcallback = "http://localhost:3000/auth/google/callback";
+	var GOOGLEcallback = "http://sehatkahani-latest.herokuapp.com/auth/google/callback";
 
 
 	passport.use(new GoogleStrategy({

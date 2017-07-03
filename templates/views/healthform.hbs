@@ -1,0 +1,282 @@
+{{!< default}}
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <h3 style="text-align:center" class="page-header">Hi {{user.name.first}}, WELCOME to your Health profile.</h3><br/>
+    <H3>Medical Summary</H3>
+    <div class="row">
+      <div style="float:right" class="col-md-1">
+        <button type="submit" data-toggle="modal" data-target="#editMedSum" class="btn btn-primary">Edit</button>
+      </div>
+      <div id="editMedSum" role="dialog" class="div modal fade">
+        <div class="div modal-dialog">
+          <div class="div modal-content">
+            <div class="div modal-header">
+              <button type="button" data-dismiss="modal" class="close">&times;</button>
+              <h4 class="modal-title">Edit Medical Summary</h4>
+            </div>
+            <div class="div modal-body">
+              <form method="post" enctype="multipart/form-data" autocomplete="off" novalidate="novalidate" class="form-horizontal">
+                <input type="hidden" name="action" value="profile.Health1"/>
+                <div class="form-group">
+                  <label class="col-md-2">Condition</label>
+                  <div class="col-md-10">
+                    <textarea name="condition" rows="5" class="form-control">{{user.condition}}</textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2">Duration</label>
+                  <div class="col-sm-10">
+                    <select name="duration">
+                    	<option value = "1-3 weeks ago" selected=(User.duration == '1-3 weeks ago') ? true : false)>1-3 weeks ago</option>
+                    	<option value = "1-3 months ago" selected=(User.duration == '1-3 months ago') ? true : false)>1-3 months ago</option>
+                    	<option value = "4-6 months ago" selected=(User.duration == '4-6 months ago') ? true : false)>4-6 months ago</option>
+                    	<option value = "6-12 months ago" selected=(User.duration == '6-12 months ago') ? true : false)>6-12 months ago</option>
+                    	<option value = "2-4 years ago" selected=(User.duration == '2-4 years ago') ? true : false)>2-4 years ago</option>
+                    	<option value = "more than 4 year" selected=(User.duration == 'more than 4 year') ? true : false)>more than 4 year</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2">Status</label>
+                  <div class="col-sm-10">
+                    <select name="status">
+                    	<option value = "Active">Active</option>
+                    	<option value = "Inactive">Inactive</option>
+                    	<option value = "In Process">In Process</option>
+                    	<option value = "Resolved/Cured">Resolved/Cured</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2">Surgery</label>
+                  <div class="col-sm-10">
+                    <textarea name="surgery" rows="5" class="form-control">{{user.surgery}}</textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-10">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="surgery" value="false"/> Not had Surgery
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+            <div class="div modal-footer">
+              <button type="submit" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Current Condition:</label>
+      <div class="col-md-9">
+        <p>{{user.condition}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Duration:</label>
+      <div class="col-md-9">
+        <p>{{user.duration}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Status:</label>
+      <div class="col-md-9">
+        <p>{{user.status}} </p>
+      </div>
+   	</div>
+    <div class="row">
+      <label class="col-md-3">Surgery:</label>
+      <div class="col-md-9">
+        <p>{{user.surgery}} </p>
+      </div>
+    </div><br/><br/>
+    <H3>Social History</H3>
+    <div class="div">
+      <div class="div row">
+        <div class="col-md-11"></div>
+        <div class="col-md-1">
+          <button type="submit" data-toggle="modal" data-target="#editSocHis" class="btn btn-primary">Edit</button>
+        </div>
+      </div>
+      <div id="editSocHis" role="dialog" class="div modal fade">
+        <div class="div modal-dialog">
+          <div class="div modal-content">
+            <div class="div modal-header">
+              <button type="button" data-dismiss="modal" class="close">&times;</button>
+              <h4 class="modal-title">Edit Social History</h4>
+            </div>
+            <div class="div modal-body">
+              <form method="post" enctype="multipart/form-data" autocomplete="off" novalidate="novalidate" class="form-horizontal">
+                <input type="hidden" name="action" value="profile.HealthS"/>
+                <div class="form-group">
+                  <label class="col-sm-2">Alcohol Consumption</label>
+                  <div class="col-sm-10">
+                    <select name="alcohol">
+                      <option value = "no">No</option>
+                      <option value = "yes">Yes</option>
+                      <option value = "yes (1-4 drinks a week)">yes (1-4 drinks a week)</option>
+                      <option value = "yes (5-8 drinks a week)">yes (5-8 drinks a week)</option>
+                      <option value = "yes (More than 8 drinks a week)">yes (More than 8 drinks a week)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2">Diet</label>
+                  <div class="col-sm-10">
+                    <select name="diet">
+                      <option value = "no restrictions">no restrictions</option>
+                      <option value = "no red meat">no red meat</option>
+                      <option value = "no meat other than fish">no meat other than fish</option>
+                      <option value = "vegeterian">vegeterian</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2">Tobacco Consumption</label>
+                  <div class="col-sm-10">
+                    <select name="tobacco">
+                      <option value = "no">no</option>
+                      <option value = "yes daily">yes daily</option>
+                      <option value = "yes occassionaly">yes occassionaly</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2">Excercise</label>
+                  <div class="col-sm-10">
+                    <select name="exercise">
+                      <option value = "light">light</option>
+                      <option value = "moderate">moderate</option>
+                      <option value = "heavy">heavy</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2">Height</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="height" value={{user.height}} placeholder="eg; 5ft 3in = 5.3" class="form-control"/>
+                  </div>
+                <div class="form-group">
+                  <label class="col-sm-2">Weight</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="weight" value={{user.weight}} placeholder="eg; 50Kg = 50" class="form-control"/>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+            <div class="div modal-footer">
+              <button type="submit" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Diet:</label>
+      <div class="col-md-9">
+        <p>{{user.diet}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Exercise Level:</label>
+      <div class="col-md-9">
+        <p>{{user.exercise}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Height:</label>
+      <div class="col-md-9">
+        <p>{{user.height}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Weight:</label>
+      <div class="col-md-9">
+        <p>{{user.weight}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Alcohol Consupmtion:</label>
+      <div class="col-md-9">
+        <p>{{user.alcohol}} </p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Tobacco Consupmtion:</label>
+      <div class="col-md-9">
+        <p>{{user.tobacco}} </p>
+      </div>
+    </div><br/><br/>
+    <H3>Family History</H3>
+    <div class="div">
+      <div class="div row">
+        <div class="col-md-11"></div>
+        <div class="col-md-1">
+          <button type="submit" data-toggle="modal" data-target="#editFamHis" class="btn btn-primary">Edit</button>
+        </div>
+      </div>
+      <div id="editFamHis" role="dialog" class="div modal fade">
+        <div class="div modal-dialog">
+          <div class="div modal-content">
+            <div class="div modal-header">
+              <button type="button" data-dismiss="modal" class="close">&times;</button>
+              <h4 class="modal-title">Edit Family History</h4>
+            </div>
+            <div class="div modal-body">
+              <form method="post" enctype="multipart/form-data" autocomplete="off" novalidate="novalidate" class="form-horizontal">
+                <input type="hidden" name="action" value="profile.Health3"/>
+                <div class="form-group">
+                  <label class="col-sm-2">Relationship</label>
+                  <div class="col-sm-10">
+                    <select name="famhis">
+                      <option value = "father">father</option>
+                      <option value = "mother">mother</option>
+                      <option value = "daughter">daughter</option>
+                      <option value = "son">son</option>
+                      <option value = "brother">brother</option>
+                      <option value = "sister">sister</option>
+                      <option value = "grandfather">grandfather</option>
+                      <option value = "grandmother">grandmother</option>
+                      <option value = "uncle">uncle</option>
+                      <option value = "aunt">aunt</option>
+                      <option value = "surrogate">surrogate</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2">Condition</label>
+                  <div class="col-sm-10">
+                    <textarea name="fcondition" rows="2" class="form-control">{{user.fcondition}}</textarea>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+            <div class="div modal-footer">
+              <button type="submit" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Relationship:</label>
+      <div class="col-md-9">
+        <p>{{user.famhis}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3">Condition:</label>
+      <div class="col-md-9">
+        <p>{{user.fcondition}}</p>
+      </div>
+    </div>
+  </div>
+</div>

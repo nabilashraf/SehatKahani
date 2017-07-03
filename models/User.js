@@ -44,16 +44,8 @@ User.add({
 }
 
 );
-/*
-var Userschema = mongoose.Schema({
-	facebook: {
-		fid: {type: String},
-		token: {type: String},
-		femail: {type: String},
-		fname: {type: String}
-	}
 
-})*/ 
+
 // Provide access to Keystone
 User.schema.virtual('canAccessKeystone').get(function () {
 	return this.isAdmin;

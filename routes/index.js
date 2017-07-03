@@ -54,6 +54,7 @@ exports = module.exports = function (app) {
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
 	app.get('/profile', routes.views.profile);
+	app.all('/healthForm', routes.views.healthform);
 	// Sessions
 
 	app.all('/join', routes.views.sessions.join);

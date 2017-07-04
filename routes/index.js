@@ -58,6 +58,7 @@ exports = module.exports = function (app) {
 	// Sessions
 
 	app.all('/join', routes.views.sessions.join);
+	app.all('/joinDoc', routes.views.sessions.joinDoc);
 	app.all('/signin', routes.views.sessions.signin);
 	app.get('/signout', routes.views.sessions.signout);
 

@@ -18,6 +18,9 @@ User.add({
 	email: { type: Types.Email, initial: true, required: true, unique: true, index: true },
 	password: { type: Types.Password, initial: true },
 	photo: { type: Types.CloudinaryImage },
+	patient:  { type: Types.Relationship, ref: 'Patient'},
+	doctor: { type: Types.Relationship, ref: 'Doctor'}
+	
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 	isDoctor: { type: Boolean, label: 'Mashwara Expert', initial: true},
@@ -44,7 +47,8 @@ User.schema.virtual('canAccessKeystone').get(function () {
  * Relationships
  */
 User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
-
+User.relationship({ ref: 'Doctor', refPath: 'nameuser', path: 'doctors'});
+User.relationship({ ref: 'Patient', refPath: 'UserId', path: 'patients'});
 
 /**
  * Registration

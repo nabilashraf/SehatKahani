@@ -12,7 +12,7 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	locals.section = 'session';
 	locals.form = req.body;
-	view.on('post', { action: 'join' }, function(next) {
+	view.on('post', { action: 'joinDoc' }, function(next) {
 		
 		async.series([
 			
@@ -49,27 +49,27 @@ exports = module.exports = function(req, res) {
 						first: req.body.firstname,
 						last: req.body.lastname,
 					},
-					isPatient: true,
+					isDoctor: true,
 					email: req.body.email,
 					password: req.body.password
 				};
 				
 
 
-				var pData = {
+				var dData = {
 					name: {
 						first: req.body.firstname,
 						last: req.body.lastname,
 					},
 					email: req.body.email,
 				};
-					
+				
 				var User = keystone.list('User').model,
-					Patient = keystone.list('Patient').model,
+					Doctor = keystone.list('Doctor').model,
 					newUser = new User(userData),
-					newP = new Patient(pData);
+					newD = new Doctor(dData);
 
-				newP.save();
+				newD.save();
 
 				newUser.save(function(err) {
 					return cb(err);
@@ -101,6 +101,6 @@ exports = module.exports = function(req, res) {
 		
 	});
 	
-	view.render('sessions/join');
+	view.render('sessions/joinDoc');
 	
 }

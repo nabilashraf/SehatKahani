@@ -47,7 +47,7 @@ User.schema.virtual('canAccessKeystone').get(function () {
  * Relationships
  */
 User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
-User.relationship({ ref: 'Doctor', refPath: 'nameuser', path: 'doctors'});
+User.relationship({ ref: 'Doctor', refPath: 'UserId', path: 'doctors'});
 User.relationship({ ref: 'Patient', refPath: 'UserId', path: 'patients'});
 
 /**

@@ -9,7 +9,7 @@ var keystone = require('keystone'),
  */
 
 var Doctor = new keystone.List('Doctor', {
-    autokey: { path: 'key', from: 'name', unique: true },
+    autokey: { path: 'slug', from: 'name', unique: true },
     track: true
 });
 
@@ -17,7 +17,7 @@ var Doctor = new keystone.List('Doctor', {
 Doctor.add({
 
         name: { type: Types.Name, required: true, index: true },
-        nameuser: { type: Types.Relationship, ref: 'User', index: true, unique: true, filters: { isDoctor: true }},
+        UserId: { type: Types.Relationship, ref: 'User', index: true, filters: { isDoctor: true }},
         email: { type: Types.Email, initial: true, index: true, displayGravatar: true , unique: true},
     }, 'Profile', {
         isPublic: { type: Boolean, default: true },

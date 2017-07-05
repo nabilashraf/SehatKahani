@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
  * ==========
  */
 var User = new keystone.List('User',{
-	autokey: { path: 'key', from: 'name', unique: true },
+	autokey: { path: 'key', from: '_id', unique: true },
 	track: true
 });
 
@@ -17,9 +17,9 @@ User.add({
 	gender: { type: Types.Select, options: 'Male, Female', deafult: '', index: true},
 	email: { type: Types.Email, initial: true, required: true, unique: true, index: true },
 	password: { type: Types.Password, initial: true },
-	photo: { type: Types.CloudinaryImage },
-	patient:  { type: Types.Relationship, ref: 'Patient'},
-	doctor: { type: Types.Relationship, ref: 'Doctor'}
+	photo: { type: Types.CloudinaryImage }
+//	patient:  { type: Types.Relationship, ref: 'Patient'},
+//	doctor: { type: Types.Relationship, ref: 'Doctor'}
 	
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
@@ -46,12 +46,9 @@ User.schema.virtual('canAccessKeystone').get(function () {
 /**
  * Relationships
  */
-User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
-User.relationship({ ref: 'Doctor', refPath: 'UserId', path: 'doctors'});
-User.relationship({ ref: 'Patient', refPath: 'UserId', path: 'patients'});
 
 /**
  * Registration
  */
-User.defaultColumns = 'name, email, isAdmin';
+User.defaultColumns = 'name, email, isAdmin, _id';
 User.register();

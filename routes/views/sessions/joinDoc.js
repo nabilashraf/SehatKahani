@@ -54,7 +54,9 @@ exports = module.exports = function(req, res) {
 					password: req.body.password
 				};
 				
-
+				console.log(userData);
+				var User = keystone.list('User').model,
+					newUser = new User(userData);
 
 				var dData = {
 					name: {
@@ -65,20 +67,18 @@ exports = module.exports = function(req, res) {
 					speciality: req.body.speciality,
 					medno: req.body.medno
 				};
-				
-				var User = keystone.list('User').model,
-					Doctor = keystone.list('Doctor').model,
-					newUser = new User(userData),
+				console.log(dData);
+				var	Doctor = keystone.list('Doctor').model,
 					newD = new Doctor(dData);
+
+				newD.save();
+			
+
 
 				newUser.save(function(err) {
 					return cb(err);
 				});
 				
-				newD.save(function(err) {
-					return cb(err);
-				});
-			
 			}
 			
 		], function(err){

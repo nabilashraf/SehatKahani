@@ -30,7 +30,7 @@ exports = module.exports = function(req, res) {
 					res.redirect('/welcome/');
 				}
 			 else {
-				res.redirect('/profile');
+				res.redirect('/');
 			}
 		}
 		

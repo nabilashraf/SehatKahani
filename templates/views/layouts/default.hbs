@@ -39,12 +39,18 @@
 										<a href="{{ href }}">{{ label }}</a>
 									</li>
 								{{/each}}
+								<li><a href="/patients">Patients</a></li>
+								<li><a href="/doctors">Doctors</a></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								{{#if user}}
-								<li><a href="/signout">Sign Out</a></li>
+									<li class="dropdown"><a data-toggle="dropdown" href="/patient/dashboard" class="dropdown-toggle user hidden-xs">{{user.name.first}}<span class="caret"></span></a>
+									  <ul class="dropdown-menu">
+									    <li><a href="/profile">Edit Profile<span class="entypo entypo-large entypo-pencil hidden-xs"></span></a></li>
+									    <li><a href="/signout">Sign Out<span style="float:right" class="glyphicon glyphicon-log-out"></span><span class="entypo entypo-large entypo-logout hidden-xs"></span></a></li>
+									  </ul>
+									</li>
 								{{else}}
-								<li><a href="/join">Sign Up</a></li>
 								<li><a href="/signin">Sign In</a></li>
 								{{/if}}
 							</ul>
@@ -103,4 +109,5 @@
 		<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
 		{{{isAdminEditorJS user}}}
 	</body>
+
 </html>

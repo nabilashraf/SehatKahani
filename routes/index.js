@@ -54,13 +54,20 @@ exports = module.exports = function (app) {
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);
 	app.get('/profile', routes.views.profile);
-	app.all('/healthForm', routes.views.healthform);
 	// Sessions
 
 	app.all('/join', routes.views.sessions.join);
 	app.all('/joinDoc', routes.views.sessions.joinDoc);
 	app.all('/signin', routes.views.sessions.signin);
 	app.get('/signout', routes.views.sessions.signout);
+
+	// Doctors
+	app.get('/doctors', routes.views.doctors);
+	app.get('/doctors/dashboard', routes.views.doctor.dashboard);
+	// Patients
+	app.get('/patients', routes.views.patients);
+	app.get('/patients/dashboard', routes.views.patient.dashboard);
+	app.all('/patients/healthForm', routes.views.patient.healthform);
 
 	//Auth
 

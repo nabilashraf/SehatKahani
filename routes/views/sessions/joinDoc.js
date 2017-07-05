@@ -62,6 +62,8 @@ exports = module.exports = function(req, res) {
 						last: req.body.lastname,
 					},
 					email: req.body.email,
+					speciality: req.body.speciality,
+					medno: req.body.medno
 				};
 				
 				var User = keystone.list('User').model,
@@ -69,9 +71,11 @@ exports = module.exports = function(req, res) {
 					newUser = new User(userData),
 					newD = new Doctor(dData);
 
-				newD.save();
-
 				newUser.save(function(err) {
+					return cb(err);
+				});
+				
+				newD.save(function(err) {
 					return cb(err);
 				});
 			
@@ -86,7 +90,7 @@ exports = module.exports = function(req, res) {
 					console.log('[join] - Set target as [' + req.body.target + '].');
 					res.redirect(req.body.target);
 				} else {
-					res.redirect('/profile');
+					res.redirect('/doctors/dashboard');
 				}
 			}
 			

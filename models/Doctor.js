@@ -16,8 +16,6 @@ var Doctor = new keystone.List('Doctor', {
 
 Doctor.add({
 
-        name: { type: Types.Name, required: true, index: true },
-        UserId: { type: Types.Relationship, ref: 'User', index: true, filters: { isDoctor: true }},
         name: { type: Types.Name},
         UserId: { type: String},
         email: { type: Types.Email},

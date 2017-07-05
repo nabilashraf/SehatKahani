@@ -64,10 +64,13 @@ exports = module.exports = function (app) {
 	// Doctors
 	app.get('/doctors', routes.views.doctors);
 	app.get('/doctors/dashboard', routes.views.doctor.dashboard);
+	app.get('/doctors/appointment', routes.views.doctor.appointment);
 	// Patients
 	app.get('/patients', routes.views.patients);
 	app.get('/patients/dashboard', routes.views.patient.dashboard);
 	app.all('/patients/healthForm', routes.views.patient.healthform);
+	app.get('/patients/appointment', routes.views.patient.appointment);
+	app.get('/patients/reqappointment', routes.views.patient.reqappointment);
 
 	//Auth
 

@@ -17,7 +17,7 @@ var Patient = new keystone.List('Patient', {
 Patient.add({
 
 	name: {type: Types.Name},
-	UserId: { type: Types.Relationship, ref:'User' , index: true, filters: { isPatient: true }},
+	UserId: { type: String},
 	email: { type: Types.Email},
 },
 'SocialHistory', {
@@ -55,7 +55,6 @@ Patient.add({
 	Relationships
 	=============
 */
-Patient.relationship({ ref: 'User', refPath: 'patient', path: 'users' });
 
 
 /**

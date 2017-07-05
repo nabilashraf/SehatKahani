@@ -16,9 +16,9 @@ var Doctor = new keystone.List('Doctor', {
 
 Doctor.add({
 
-        name: { type: Types.Name, required: true, index: true },
-        UserId: { type: Types.Relationship, ref: 'User', index: true, filters: { isDoctor: true }},
-        email: { type: Types.Email, initial: true, index: true, displayGravatar: true , unique: true},
+        name: { type: Types.Name},
+        UserId: { type: String},
+        email: { type: Types.Email},
     }, 'Profile', {
         isPublic: { type: Boolean, default: true },
         photo: { type: Types.CloudinaryImage },
@@ -27,10 +27,10 @@ Doctor.add({
         website: { type: Types.Url },
         bio: { type: Types.Textarea },
         awards: { type: Types.Textarea},
-        speciality: { type: Types.Select, options: 'Cardiology, Pathology, Neurology', index: true},
+        speciality: { type: Types.Select, options: 'Cardiology, Pathology, Neurology'},
         medno: { type: Types.Number, format: '00', noedit: true},
-        degree: {type: Types.Select, options: 'Bachelors, Masters, PhD', index: true},
-        gravatar: { type: String, noedit: true }
+        degree: {type: Types.Select, options: 'Bachelors, Masters, PhD'}
+
     }
 );
 
@@ -46,14 +46,11 @@ Doctor.add({
  =============
  */
 
-Doctor.relationship({ ref: 'Post', refPath: 'author', path: 'posts' });
-Doctor.relationship({ref: 'User', refPath: 'doctor', path: 'users'});
-
 /**
  * Registration
  * ============
  */
 
 //Doctor.addPattern('track');
-Doctor.defaultColumns = 'name, nameuser, email, medno, speciality, isDoctor';
+Doctor.defaultColumns = 'name, UserId, email, medno, speciality, isDoctor, _id';
 Doctor.register();
